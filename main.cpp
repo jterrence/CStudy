@@ -6,6 +6,7 @@
 #include <Bind.h>
 #include <functional>
 #include <FunctionA.h>
+#include <FunctionB.h>
 
 using namespace std;
 
@@ -95,6 +96,24 @@ void testFunctionA(){
 }
 
 /**
+ * 测试存储回调
+ */
+void testFunctionB(){
+    B::FunctionB functionA;
+    B::cb1_t  cb1_t = std::bind(&B::FunctionB::foo1,functionA);
+    B::callbacks.push_back(cb1_t);
+
+    B::FunctionB functionB;
+    B::cb1_t  cb2_t = std::bind(&B::FunctionB::foo2,functionB,2323);
+    B::callbacks.push_back(cb2_t);
+
+    for(auto& fun : B::callbacks){
+        fun();
+    }
+
+}
+
+/**
  * 测试bind
  */
 void testBind(){
@@ -107,6 +126,6 @@ void testBind(){
 
 
 int main() {
-    testFunctionA();
+    testFunctionB();
     return  0;
 }
