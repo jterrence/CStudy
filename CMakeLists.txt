@@ -18,7 +18,8 @@ SET(CStudyIncludes ${CStudy_SOURCE_DIR}/rvalue/include
         ${CStudy_SOURCE_DIR}/move/include
         ${CStudy_SOURCE_DIR}/lambda/include
         ${CStudy_SOURCE_DIR}/function/include
-        ${CStudy_SOURCE_DIR}/thread/include)
+        ${CStudy_SOURCE_DIR}/thread/include
+        ${CStudy_SOURCE_DIR}/template/include)
 #添加子目录
 add_subdirectory(rvalue)
 add_subdirectory(construct)
@@ -26,10 +27,11 @@ add_subdirectory(move)
 add_subdirectory(lambda)
 add_subdirectory(function)
 add_subdirectory(thread)
+add_subdirectory(template)
 
 INCLUDE_DIRECTORIES(
         ${CStudyIncludes}
 )
 aux_source_directory(. DIR_SRCS)
 add_executable(CStudy ${DIR_SRCS})
-target_link_libraries(CStudy rvalue construct move lambda function thread)
+target_link_libraries(CStudy rvalue construct move lambda function thread template)

@@ -7,6 +7,7 @@
 #include <functional>
 #include <FunctionA.h>
 #include <FunctionB.h>
+#include <Template.h>
 
 using namespace std;
 
@@ -124,8 +125,16 @@ void testBind(){
     std::cout << fn_five(10) << std::endl;       // return 5;
 }
 
+/**
+ * 测试模板
+ */
+void testTemplate(){
+    Template<int> aTemplate;
+    int result = aTemplate.g(2,3);
+    std::cout << "result = " << result << std::endl;
+}
 
 int main() {
-    testFunctionB();
+    testTemplate();
     return  0;
 }
