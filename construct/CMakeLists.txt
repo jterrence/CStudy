@@ -1,0 +1,6 @@
+SET(CONSTRUCT_SRCS Construct.cpp)
+SET(CONSTRUCT_HEADERS include/Construct.h)
+INCLUDE_DIRECTORIES(
+        ${CStudyIncludes}
+)
+ADD_LIBRARY(construct SHARED ${CONSTRUCT_HEADERS} ${CONSTRUCT_SRCS})

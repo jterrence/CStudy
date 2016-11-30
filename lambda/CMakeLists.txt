@@ -1,0 +1,6 @@
+SET(LAMBDA_SRCS Lambda.cpp)
+SET(LAMBDA_HEADERS include/Lambda.h)
+INCLUDE_DIRECTORIES(
+        ${CStudyIncludes}
+)
+ADD_LIBRARY(lambda SHARED ${LAMBDA_HEADERS} ${LAMBDA_SRCS})

@@ -1,0 +1,6 @@
+SET(RVALUE_SRCS RValue.cpp)
+SET(RVALUE_HEADERS include/RValue.h)
+INCLUDE_DIRECTORIES(
+        ${CStudyIncludes}
+)
+ADD_LIBRARY(rvalue SHARED ${RVALUE_HEADERS} ${RVALUE_SRCS})
