@@ -1,0 +1,6 @@
+SET(TEMPLATE_SRCS Template.cpp)
+SET(TEMPLATE_HEADERS include/Template.h)
+INCLUDE_DIRECTORIES(
+        ${CStudyIncludes}
+)
+ADD_LIBRARY(template SHARED ${TEMPLATE_HEADERS} ${TEMPLATE_SRCS})
