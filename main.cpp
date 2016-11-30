@@ -5,6 +5,7 @@
 #include <Function.h>
 #include <Bind.h>
 #include <functional>
+#include <FunctionA.h>
 
 using namespace std;
 
@@ -67,17 +68,45 @@ void testFunction(){
     std::cout << fun2(123) << std::endl;
 }
 
-void testBind(){
-    using namespace std::placeholders;
+/**
+ * 测试使用回调
+ */
+void testFunctionA(){
+    A::FunctionA functionA;
+    A::cb1_t  cb1_t = std::bind(&A::FunctionA::foo1,functionA);
+    cb1_t();
 
-    //bind functions;
-//    auto fn_five = std::bind(&Bind::my_divide,10.0,2.0);   // returns 10/2
-//    std::cout << fn_five() << '\n';                    // return 5;
+    A::FunctionA functionB;
 
+    A::cb2_t cb2_t  = std::bind(&A::FunctionA::foo2,
+                                functionB,std::placeholders::_1);
+    cb2_t(222);
+
+    A::FunctionA::S s;
+
+    A::cb1_t  cb3_t = std::bind(&A::FunctionA::S::foo3,s);
+    cb3_t();
+
+    A::cb1_t  cb4_t = std::bind([]{
+        std::cout << "lambda is coming " << std::endl;
+    });
+
+    cb4_t();
 }
+
+/**
+ * 测试bind
+ */
+void testBind(){
+    Bind bind;
+    //bind 类成员函数;
+    auto fn_five = std::bind(&Bind::my_divide,bind,
+                             std::placeholders::_1,2);   // returns 10/2
+    std::cout << fn_five(10) << std::endl;       // return 5;
+}
+
+
 int main() {
-
-    testBind();
-
+    testFunctionA();
     return  0;
 }

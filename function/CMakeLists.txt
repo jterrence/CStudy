@@ -1,5 +1,5 @@
-SET(FUNCTION_SRCS Function.cpp Bind.cpp)
-SET(FUNCTION_HEADERS include/Function.h include/Bind.h)
+SET(FUNCTION_SRCS Function.cpp Bind.cpp FunctionA.cpp)
+SET(FUNCTION_HEADERS include/Function.h include/Bind.h include/FunctionA.h)
 INCLUDE_DIRECTORIES(
         ${CStudyIncludes}
 )

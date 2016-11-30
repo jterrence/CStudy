@@ -1,0 +1,6 @@
+SET(THREAD_SRCS Thread.cpp)
+SET(THREAD_HEADERS include/Thread.h)
+INCLUDE_DIRECTORIES(
+        ${CStudyIncludes}
+)
+ADD_LIBRARY(thread SHARED ${THREAD_HEADERS} ${THREAD_SRCS})
