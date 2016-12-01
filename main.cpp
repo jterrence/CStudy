@@ -8,6 +8,9 @@
 #include <FunctionA.h>
 #include <FunctionB.h>
 #include <Template.h>
+#include <Unique.h>
+#include <Thread.h>
+#include <thread>
 
 using namespace std;
 
@@ -114,6 +117,9 @@ void testFunctionB(){
 
 }
 
+void testFunctionC(){
+
+}
 /**
  * 测试bind
  */
@@ -134,7 +140,34 @@ void testTemplate(){
     std::cout << "result = " << result << std::endl;
 }
 
+/**
+ * 测试智能指针
+ */
+void testUnique(){
+    Unique unique;
+    unique.show1();
+}
+
+/**
+ * 测试线程
+ */
+void testThread(){
+    std::thread threads[5];
+
+
+    std::cout << "Spawning 5 threads...\n";
+
+    Thread thread;
+    for (int i = 0; i<5; ++i)
+        threads[i] = std::thread(&Thread::pause_thread,thread,i + 1);   // move-assign threads 这里调用move复制函数
+
+    std::cout << "Done spawning threads. Now waiting for them to join:\n";
+    for (int i = 0; i<5; ++i)
+        threads[i].join();
+    std::cout << "All threads joined!\n";
+
+}
 int main() {
-    testTemplate();
+    testThread();
     return  0;
 }

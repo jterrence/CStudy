@@ -1,0 +1,6 @@
+SET(UNIQUE_SRCS Unique.cpp)
+SET(UNIQUE_HEADERS include/Unique.h)
+INCLUDE_DIRECTORIES(
+        ${CStudyIncludes}
+)
+ADD_LIBRARY(unique SHARED ${UNIQUE_HEADERS} ${UNIQUE_SRCS})
