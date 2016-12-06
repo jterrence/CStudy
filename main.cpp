@@ -165,7 +165,7 @@ void testThread(){
     for (int i = 0; i<5; ++i)
         threads[i].join();
     std::cout << "All threads joined!\n";
-
+    std::cout << "All threads end \n";
 }
 int main() {
     testThread();
